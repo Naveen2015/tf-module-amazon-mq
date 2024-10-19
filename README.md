@@ -1,1 +1,1 @@
-# tf-module-amazon-mq
+# tf-module-rds
