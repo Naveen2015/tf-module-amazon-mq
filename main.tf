@@ -53,3 +53,12 @@ root_block_device {
 
 }
 
+resource "aws_route53_record" "records" {
+
+  zone_id = var.domain_id
+  name    = "rabbitmq-${var.env}.kruthikadevops.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.web.private_ip]
+}
+
