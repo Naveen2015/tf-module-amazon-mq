@@ -36,7 +36,7 @@ resource "aws_security_group" "main" {
 
 
 
-resource "aws_instance" "web" {
+resource "aws_instance" "rabbitmq" {
   ami           = data.aws_ami.ami.id
   instance_type = var.instance_type
   vpc_security_group_ids = [aws_security_group.main.id]
@@ -59,6 +59,6 @@ resource "aws_route53_record" "records" {
   name    = "rabbitmq-${var.env}.kruthikadevops.online"
   type    = "A"
   ttl     = 30
-  records = [aws_instance.web.private_ip]
+  records = [aws_instance.rabbitmq.private_ip]
 }
 
